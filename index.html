@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maggie kraine — Game Audio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html#projects">Game Audio</a>
+  <a href="index.html#film">Film</a>
+  <a href="about.html">About</a>
+  <a href="index.html#contact">Contact</a>
+</nav>
+
+<section id="hero">
+
+  <video autoplay muted loop playsinline id="hero-video">
+    <source src="assets/last_of_us_reel.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <!-- Sound toggle (hidden initially) -->
+  <button id="audio-toggle" class="audio-hidden">sound off</button>
+
+  <div class="hero-text" id="enter-button">
+    <h1>maggie kraine</h1>
+    <p>click to enter</p>
+  </div>
+
+</section>
+
+<section id="projects">
+  <h2 class="section-title">game audio</h2>
+
+  <div class="project-grid">
+    <a class="project-card" href="projects/last_of_us.html">
+      <img src="assets/last_of_us_thumbnail.jpg">
+      <h3>sound design reel </h3>
+      <p>Sound Redesign • Reaper • foley</p>
+    </a>
+
+    <a class="project-card" href="projects/lol.html">
+      <img src="assets/lol_thumbnail.jpg">
+      <h3>league of legends</h3>
+      <p>Sound Redesign • foley • field recording</p>
+    </a>
+
+    <a class="project-card" href="projects/apex.html">
+      <img src="assets/apex.jpg">
+      <h3>apex legends</h3>
+      <p>sound redesign • foley • UI </p>
+    </a>
+
+    <a class="project-card" href="projects/imp.html">
+      <img src="assets/imp.jpg">
+      <h3>implementation reel</h3>
+      <p>sound redesign • foley • unity implementation</p>
+    </a>
+  </div>
+</section>
+
+<section id="film">
+  <h2 class="section-title">film & scoring</h2>
+  <div class="film-grid">
+    <a class="film-card" href="projects/film-project-1.html">
+      <img src="assets/dark.jpg">
+      <h3>Dark Theme</h3>
+      <p>Sound Redesign • Granular Synthesis • ProTools </p>
+    </a>
+
+    <a class="film-card" href="projects/film-project-2.html">
+      <img src="assets/audio_1.jpg">
+      <h3>Color Me Dear: Lucia </h3>
+      <p>Composition</p>
+    </a>
+
+    <a class="film-card" href="projects/film-project-3.html">
+      <img src="assets/sirensong.jpg">
+      <h3>Siren Song</h3>
+      <p>Composition • Synthesis • ProTools  </p>
+    </a>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">contact</h2>
+  <p>kraine.e@northeastern.edu</p>
+</section>
+
+<script>
+const video = document.getElementById("hero-video");
+const enter = document.getElementById("enter-button");
+const toggle = document.getElementById("audio-toggle");
+
+let audioEnabled = false;
+
+/* Click name to enter */
+enter.addEventListener("click", () => {
+
+  video.muted = false;
+  video.volume = 0;
+  audioEnabled = true;
+
+  const fadeAudio = setInterval(() => {
+    if (video.volume < 1) {
+      video.volume += 0.05;
+    } else {
+      clearInterval(fadeAudio);
+    }
+  }, 100);
+
+  enter.classList.add("fade-out");
+});
+
+/* Show sound control AFTER scrolling */
+window.addEventListener("scroll", () => {
+  if (window.scrollY > window.innerHeight * 0.25 && audioEnabled) {
+    toggle.classList.remove("audio-hidden");
+  }
+});
+
+/* Toggle sound */
+toggle.addEventListener("click", () => {
+  video.muted = !video.muted;
+  toggle.textContent = video.muted ? "Sound On" : "Sound Off";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Title — Maggie Kraine</title>
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="audio-project-page">
+
+<nav>
+  <a href="../index.html#projects">Game Audio</a>
+  <a href="../index.html#film">Film</a>
+  <a href="../about.html">About</a>
+  <a href="../index.html#contact">Contact</a>
+</nav>
+
+<section class="audio-hero">
+  <h1>Color Me Dear: Lucia <h1>
+  <p class="audio-subtitle">Composition • Piano </p>
+</section>
+
+<section class="audio-player-section">
+
+  <div class="audio-player-wrapper">
+    <audio controls>
+      <source src="../assets/project_audio.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+</section>
+
+<section class="project-description">
+  <p>
+  Lucia Joyce, James Joyce’s daughter once said: “C’est moi qui est l’artiste,” or “It’s me who is the artist.” With her impressive avant-garde dance training, Joyce would have had a lot to contribute to the Abbey Theatre Ballets, which ran from 1927 to 1933. Yet, Lucia was diagnosed with Schizophrenia and sent to a mental asylum for much of the rest of her life. 
+
+Musically, Color Me Dear explores the different textures and colors that tones have to offer; using syncopation and “cluster” chords to form color. For the bridge of Color Me Dear, I focused on creating a “church bell”-like resonance to create an echoing sentiment of the descension to insanity. The chords move in a similar way, reaching the lowest point of the song’s register during this descent. Measure 29 marks a sharp departure from the echoing low point, and a hopeful movement up. From the bridge onward I used triplets in coordination with higher register tones to create a feeling a hope for Lucia & her legacy. Although she did not live on through dance during her own time, she has become the muse for a lot of artists and the subject of biographies. Many say James Joyce traded Finnegan’s Wake(one of his respected works) for his daughter’s well being.
+  </p>
+
+
+</section>
+
+<script>
+/* subtle hue shift while scrolling */
+window.addEventListener("scroll", () => {
+  const scroll = window.scrollY;
+  const hue = 340 + scroll * 0.03;
+  const sat = 18 + scroll * 0.01;
+  const light = 10 + scroll * 0.005;
+
+  document.body.style.backgroundColor =
+    `hsl(${hue}, ${sat}%, ${light}%)`;
+});
+</script>
+
+</body>
+</html>

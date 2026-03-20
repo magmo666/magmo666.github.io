@@ -1,0 +1,19 @@
+portfolio/
+│
+├── index.html
+├── about.html
+├── style.css
+│
+├── assets/
+│   ├── last_of_us_reel.mp4
+│   ├── lol_reel.mp4
+│   ├── dark.mp4
+│   ├── headshot.jpg
+│   ├── cv.pdf
+│   └── thumbnails...
+│
+└── projects/
+    └── last_of_us.html
+    └── lol.html
+    └── film-project-1.html
+    └── audio_project.html

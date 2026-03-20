@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>League of Legends Audio Test</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="project-page-body">
+
+<nav>
+  <a href="../index.html#projects">Game Audio</a>
+  <a href="../index.html#film">Film</a>
+  <a href="../about.html">About</a>
+  <a href="../index.html#contact">Contact</a>
+</nav>
+<section class="project-page">
+
+  <!-- VIDEO WITH TITLE + PLAY BUTTON OVERLAY -->
+  <div class="video-container">
+    <video id="project-video" controls preload="metadata">
+      <source src="../assets/lol_reel.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay before play -->
+    <div class="video-overlay" id="video-overlay">
+      <h1 class="video-title"></h1>
+      <div class="play-button" id="play-button">&#9658;</div>
+    </div>
+  </div>
+
+  <!-- Subtitle BELOW video -->
+  <p class="video-subtitle">Sound Redesign</p>
+
+  <div class="project-text">
+    
+    <p> Lux- </p>
+  <p>
+    
+  I’ve learned a lot since last year’s Sound Design Test, and wanted to make sure that my interpretation of Lux’s abilities had fullness, dynamic range and movement that they hadn’t prior. For my redesign of Elemental Lux’s abilities, I focused on three different parts of the ability sonically. First, maintaining both a brightness to the firing of the projectile and the character of the element shown in the skin. Second, following the path of the projectile and creating an increasing sense of danger sonically in a unique way in each elemental state. Third, creating a substantial impact of the projectile and informing the enemy to move from the AOE to avoid the detonation & slowing effect. Lux’s Storm elemental state felt like a good way to implement the usage of low frequencies that increase nervous system activity in the listener, creating a sense of unease, specifically with the usage of thunder & other bass tones. Using EQ carefully on each audio track I created space within the mix and made sure the listener was fully engaged. Before each AOE detonates, there is both a pitch riser, and low shelf filter that increases the range of frequencies as the AOE is closer to detonation to create anxiety. 
+
+</p>
+
+   <p>Azir- </p>
+  <p>
+
+  For Azir’s kit I wanted to make sure that I gave every part of his ability character by breaking it into sections. I broke these two abilities into 2 sections each. For the summoning of the soldiers I knew I wanted both the sound of danger with the blade, and a sense of activation with the movement upwards. There is an imminence to attack and sense of danger with this ability I didn’t want to be lost in the sand particles. I also wanted to include a sound of activation alongside each soldier, embodying both the power given to the player and the danger for the enemy. Then I worked on finding the right sound for the movement and attack towards the enemy in attack for when they were sent. These movements had to be worked on together because there is an amount of dramatic build necessary towards the attack. Lastly, I focused on the sheathing of the blade & the sinking of the soldiers- I wanted to emphasize here that they could no longer attack with their blades or pose a threat. 
+</p>
+  </div>
+
+</section>
+
+<script>
+const video = document.getElementById('project-video');
+const overlay = document.getElementById('video-overlay');
+const playButton = document.getElementById('play-button');
+const body = document.querySelector('body');
+
+// Play overlay
+playButton.addEventListener('click', () => {
+  video.play();
+  overlay.style.opacity = 0;
+  setTimeout(() => overlay.style.display = 'none', 500);
+});
+
+// Show overlay again if video ends
+video.addEventListener('ended', () => {
+  overlay.style.display = 'flex';
+  overlay.style.opacity = 1;
+});
+
+// Scroll-based background color shift with hue, saturation, lightness
+window.addEventListener('scroll', () => {
+  const scrollAmount = window.scrollY;
+
+  // Hue: 350 (red) → 180 (teal)
+  let hue = 350 - scrollAmount / 15;
+  if (hue < 180) hue = 180;
+
+  // Saturation: 70% → 50%
+  let sat = 70 - scrollAmount / 100;
+  if (sat < 50) sat = 50;
+
+  // Lightness: 12% → 18%
+  let light = 12 + scrollAmount / 100;
+  if (light > 18) light = 18;
+
+  body.style.backgroundColor = `hsl(${hue}, ${sat}%, ${light}%)`;
+});
+</script>
+
+</body>
+</html>

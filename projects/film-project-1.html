@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Theme</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="project-page-body">
+
+<nav>
+  <a href="../index.html#projects">Game Audio</a>
+  <a href="../index.html#film">Film</a>
+  <a href="../about.html">About</a>
+  <a href="../index.html#contact">Contact</a>
+</nav>
+<section class="project-page">
+
+  <!-- VIDEO WITH TITLE + PLAY BUTTON OVERLAY -->
+  <div class="video-container">
+    <video id="project-video" controls preload="metadata">
+      <source src="../assets/dark.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay before play -->
+    <div class="video-overlay" id="video-overlay">
+      <h1 class="video-title"></h1>
+      <div class="play-button" id="play-button">&#9658;</div>
+    </div>
+  </div>
+
+  <!-- Subtitle BELOW video -->
+  <p class="video-subtitle">Sound Redesign</p>
+
+  <div class="project-text">
+    
+
+  <p>
+    
+For this project I wanted to encapsulate the swirling anxiety present in the show Dark. I experimented with the timbres of the instruments and where they would fit in the soundscape,  carefully sculpting their placement in the stereo image. I used a granular synthesis plugin to manipulate the space and texture of the sounds I was working with. I also pulled a handful of samples from the BBC Sound Library into Spear for spectral re-synthesis to manipulate the movements into the sound I wanted. Then I brought all these sounds back into Protools and worked on Echo, Reverb, and mixing.
+
+</p>
+
+   
+  </div>
+
+</section>
+
+<script>
+const video = document.getElementById('project-video');
+const overlay = document.getElementById('video-overlay');
+const playButton = document.getElementById('play-button');
+const body = document.querySelector('body');
+
+// Play overlay
+playButton.addEventListener('click', () => {
+  video.play();
+  overlay.style.opacity = 0;
+  setTimeout(() => overlay.style.display = 'none', 500);
+});
+
+// Show overlay again if video ends
+video.addEventListener('ended', () => {
+  overlay.style.display = 'flex';
+  overlay.style.opacity = 1;
+});
+
+// Scroll-based background color shift with hue, saturation, lightness
+window.addEventListener('scroll', () => {
+  const scrollAmount = window.scrollY;
+
+  // Hue: 350 (red) → 180 (teal)
+  let hue = 350 - scrollAmount / 15;
+  if (hue < 180) hue = 180;
+
+  // Saturation: 70% → 50%
+  let sat = 70 - scrollAmount / 100;
+  if (sat < 50) sat = 50;
+
+  // Lightness: 12% → 18%
+  let light = 12 + scrollAmount / 100;
+  if (light > 18) light = 18;
+
+  body.style.backgroundColor = `hsl(${hue}, ${sat}%, ${light}%)`;
+});
+</script>
+
+</body>
+</html>

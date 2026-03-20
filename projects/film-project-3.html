@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Title — Maggie Kraine</title>
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="audio-project-page">
+
+<nav>
+  <a href="../index.html#projects">Game Audio</a>
+  <a href="../index.html#film">Film</a>
+  <a href="../about.html">About</a>
+  <a href="../index.html#contact">Contact</a>
+</nav>
+
+<section class="audio-hero">
+  <h1>Siren Song <h1>
+  <p class="audio-subtitle">Composition • Synthesis </p>
+</section>
+
+<section class="audio-player-section">
+
+  <div class="audio-player-wrapper">
+    <audio controls>
+      <source src="../assets/project_audio2.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+</section>
+
+<section class="project-description">
+  <p>Inspired by Suspiria 1977, the greatest film soundtrack ever
+      </p>
+<p>
+This project “Siren Song” for my Music Technology final consists of a substantial amount of sound design. Using spear I manipulated the spectral elements of each sound before processing it in Audacity and then ProTools. I utilized a sampler, midi, automation, and mixing techniques. A combination of found recordings that I took over the year: random guitar riffs, a car rev sampled across 88 keys, distorted train sounds from London, and a rumbling fire. I layered all of these sounds on some 808 beats I created to produce a hectic movement. The purpose of the song was to hypnotize the listener towards danger with repetitive movement and sudden interruptions. 
+
+Skills Applied: Protools, Audacity
+  </p>
+
+ 
+</section>
+
+<script>
+/* subtle hue shift while scrolling */
+window.addEventListener("scroll", () => {
+  const scroll = window.scrollY;
+  const hue = 340 + scroll * 0.03;
+  const sat = 18 + scroll * 0.01;
+  const light = 10 + scroll * 0.005;
+
+  document.body.style.backgroundColor =
+    `hsl(${hue}, ${sat}%, ${light}%)`;
+});
+</script>
+
+</body>
+</html>

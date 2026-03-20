@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Title — Maggie Kraine</title>
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="audio-project-page">
+
+<nav>
+  <a href="../index.html#projects">Game Audio</a>
+  <a href="../index.html#film">Film</a>
+  <a href="../about.html">About</a>
+  <a href="../index.html#contact">Contact</a>
+</nav>
+
+<section class="audio-hero">
+  <h1>Project Title</h1>
+  <p class="audio-subtitle">Sound Design • Mixing • Implementation</p>
+</section>
+
+<section class="audio-player-section">
+
+  <div class="audio-player-wrapper">
+    <audio controls>
+      <source src="../assets/project_audio.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+</section>
+
+<section class="project-description">
+  <p>
+    Short paragraph describing the creative goal of this project,
+    what you focused on technically, and what tools were used.
+  </p>
+
+  <p>
+    Example: Designed a reactive environmental soundscape using layered
+    ambiences and dynamic range sculpting to support narrative pacing.
+  </p>
+</section>
+
+<script>
+/* subtle hue shift while scrolling */
+window.addEventListener("scroll", () => {
+  const scroll = window.scrollY;
+  const hue = 340 + scroll * 0.03;
+  const sat = 18 + scroll * 0.01;
+  const light = 10 + scroll * 0.005;
+
+  document.body.style.backgroundColor =
+    `hsl(${hue}, ${sat}%, ${light}%)`;
+});
+</script>
+
+</body>
+</html>
