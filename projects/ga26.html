@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>2026 — game audio</title>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="project-page-body">
+
+  <nav>
+    <a href="../index.html#projects">game audio</a>
+    <a href="../index.html#film">film</a>
+    <a href="../about.html">about</a>
+    <a href="../index.html#contact">contact</a>
+  </nav>
+
+  <section class="project-page">
+
+    <!-- VIDEO -->
+    <div class="video-container">
+
+      <video id="project-video" controls preload="metadata">
+        <source src="../assets/ga26.mp4" type="video/mp4">
+        your browser does not support the video tag.
+      </video>
+
+      <!-- PLAY OVERLAY -->
+      <div class="video-overlay" id="video-overlay">
+        <div class="play-button" id="play-button">&#9658;</div>
+      </div>
+
+    </div>
+
+
+    <!-- TITLE -->
+    <p class="video-subtitle">game audio 2026</p>
+
+
+    <!-- PROJECT TEXT -->
+    <div class="project-text">
+
+      <p>
+        This year I’ve completed two game jams as the Sound Designer, working across Unreal Engine and Unity to explore both interactive audio implementation and sound design.
+      </p>
+
+      <p>
+        For SGJ, I worked on <em>The Man with the Big Hat</em>, utilizing Unreal Engine Blueprints, Reaper, and GitHub to collaborate with the team. Working with Blueprints was a shift from the Unity C# and Godot GDScript systems I had previously worked with, giving me an opportunity to approach interactive audio implementation from a different perspective. I built a sound manager to handle music playback based on game state, as well as an audio system for the player's hat throw, using the hat's velocity to dynamically control its pitch and spatializing the sound as the object moves through the environment.
+      </p>
+
+      <p>
+        For the 2026 GMTK Game Jam, I worked as the Sound Designer for <em>Brrreak it Down</em>, creating the game's sound effects for its fast-paced vampire gameplay and disco-inspired aesthetic. The game placed #80 in Audio out of 10,533 entries.
+      </p>
+
+
+      <!-- HAT THROW BLUEPRINT -->
+      <a
+        href="../assets/big_hat_audio_blueprint.jpg"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="../assets/big_hat_audio_blueprint.jpg"
+          alt="Unreal Engine Blueprint showing interactive audio for the hat throw"
+        >
+      </a>
+
+      <p>
+        Hat Throw — Interactive Audio. Gameplay velocity drives the pitch of the hat's sound in real time.
+      </p>
+
+
+      <!-- MUSIC MANAGER BLUEPRINT -->
+      <a
+        href="../assets/big_hat_music_manager.jpg"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="../assets/big_hat_music_manager.jpg"
+          alt="Unreal Engine Blueprint showing music management based on game state"
+        >
+      </a>
+
+      <p>
+        Music Manager — Game State Audio. Game-state changes trigger the appropriate music behavior, including transitions into battle music.
+      </p>
+
+
+      <!-- BRRREAK IT DOWN GAMEPLAY 
+      <img
+        src="../assets/brrreak_it_down_gameplay.jpg"
+        alt="Gameplay from Brrreak it Down"
+      >
+
+      <p>
+        <em>Brrreak it Down</em> — Sound Design. Gameplay showcasing the sound design created for the 2026 GMTK Game Jam.
+      </p>
+-->
+    </div>
+
+  </section>
+
+
+  <script>
+
+    const video = document.getElementById('project-video');
+    const overlay = document.getElementById('video-overlay');
+    const playButton = document.getElementById('play-button');
+    const body = document.querySelector('body');
+
+
+    // Play overlay
+
+    playButton.addEventListener('click', () => {
+
+      video.play();
+
+      overlay.style.opacity = 0;
+
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 500);
+
+    });
+
+
+    // Show overlay again when video ends
+
+    video.addEventListener('ended', () => {
+
+      overlay.style.display = 'flex';
+      overlay.style.opacity = 1;
+
+    });
+
+
+    // Purple / cinematic scroll background
+
+    window.addEventListener('scroll', () => {
+
+      const scrollAmount = window.scrollY;
+
+      // Hue: red/purple → teal
+      let hue = 350 - scrollAmount / 15;
+
+      if (hue < 180) {
+        hue = 180;
+      }
+
+
+      // Saturation: 70% → 50%
+      let sat = 70 - scrollAmount / 100;
+
+      if (sat < 50) {
+        sat = 50;
+      }
+
+
+      // Lightness: 12% → 18%
+      let light = 12 + scrollAmount / 100;
+
+      if (light > 18) {
+        light = 18;
+      }
+
+
+      body.style.backgroundColor =
+        `hsl(${hue}, ${sat}%, ${light}%)`;
+
+    });
+
+  </script>
+
+</body>
+</html>
